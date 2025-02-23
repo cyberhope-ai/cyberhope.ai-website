@@ -18,11 +18,38 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Here we'll add the form submission logic after Netlify deployment
-    toast({
-      title: "Thanks for reaching out!",
-      description: "We'll get back to you as soon as possible.",
-    })
+    try {
+      const form = e.target as HTMLFormElement
+      const formData = new FormData(form)
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Thanks for reaching out!",
+          description: "We'll get back to you as soon as possible.",
+        })
+        // Clear the form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+        })
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      })
+    }
   }
 
   return (
@@ -35,7 +62,17 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm">
+        <form 
+          onSubmit={handleSubmit} 
+          className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
+          name="contact"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <div className="hidden">
+            <input name="bot-field" />
+          </div>
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
               Name

@@ -18,27 +18,28 @@ function CircularShape({
   initialY: number
 }) {
   const [position, setPosition] = useState({ x: initialX, y: initialY })
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-    const moveShape = () => {
-      if (typeof window !== 'undefined') {
+    // Move immediately on mount
+    if (typeof window !== 'undefined') {
+      const moveShape = () => {
         const newX = Math.random() * window.innerWidth
         const newY = Math.random() * window.innerHeight
         setPosition({ x: newX, y: newY })
       }
+
+      // Move once immediately
+      moveShape()
+      
+      // Then set up interval
+      const interval = setInterval(moveShape, Math.random() * 3000 + 2000)
+      return () => clearInterval(interval)
     }
-
-    const interval = setInterval(moveShape, Math.random() * 5000 + 5000)
-    return () => clearInterval(interval)
   }, [])
-
-  if (!mounted) return null
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.5, x: initialX, y: initialY }}
+      initial={{ opacity: 0, scale: 0.8, x: initialX, y: initialY }}
       animate={{
         opacity: 1,
         scale: 1,
@@ -46,8 +47,11 @@ function CircularShape({
         y: position.y,
       }}
       transition={{
-        duration: Math.random() * 10 + 10,
-        ease: "easeInOut",
+        opacity: { duration: 0.3 },
+        scale: { duration: 0.3 },
+        x: { duration: 3 },
+        y: { duration: 3 },
+        ease: "easeOut",
       }}
       className={`absolute ${className}`}
       style={{ width: size, height: size }}
@@ -61,15 +65,44 @@ function CircularShape({
 
 export default function HeroGeometric() {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
-  const [mounted, setMounted] = useState(false)
+  const [circles, setCircles] = useState([
+    { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
+    { size: 300, gradient: "from-rose-500/[0.15]", initialX: 0, initialY: 0 },
+    { size: 250, gradient: "from-amber-500/[0.15]", initialX: 0, initialY: 0 },
+    { size: 200, gradient: "from-cyan-500/[0.15]", initialX: 0, initialY: 0 },
+    { size: 150, gradient: "from-emerald-500/[0.15]", initialX: 0, initialY: 0 },
+    { size: 180, gradient: "from-violet-500/[0.15]", initialX: 0, initialY: 0 },
+  ])
 
   useEffect(() => {
-    setMounted(true)
     if (typeof window !== 'undefined') {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
+      const width = window.innerWidth
+      const height = window.innerHeight
+      
+      setWindowSize({ width, height })
+      setCircles([
+        { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
+        {
+          size: 300,
+          gradient: "from-rose-500/[0.15]",
+          initialX: Math.max(width - 150, 0),
+          initialY: height / 4,
+        },
+        {
+          size: 250,
+          gradient: "from-amber-500/[0.15]",
+          initialX: width / 4,
+          initialY: Math.max(height - 125, 0),
+        },
+        {
+          size: 200,
+          gradient: "from-cyan-500/[0.15]",
+          initialX: (width * 3) / 4,
+          initialY: (height * 2) / 3,
+        },
+        { size: 150, gradient: "from-emerald-500/[0.15]", initialX: width / 2, initialY: 50 },
+        { size: 180, gradient: "from-violet-500/[0.15]", initialX: 100, initialY: height / 2 },
+      ])
 
       const handleResize = () => {
         setWindowSize({
@@ -82,32 +115,6 @@ export default function HeroGeometric() {
       return () => window.removeEventListener('resize', handleResize)
     }
   }, [])
-
-  if (!mounted) return null
-
-  const circles = [
-    { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
-    {
-      size: 300,
-      gradient: "from-rose-500/[0.15]",
-      initialX: Math.max(windowSize.width - 150, 0),
-      initialY: windowSize.height / 4,
-    },
-    {
-      size: 250,
-      gradient: "from-amber-500/[0.15]",
-      initialX: windowSize.width / 4,
-      initialY: Math.max(windowSize.height - 125, 0),
-    },
-    {
-      size: 200,
-      gradient: "from-cyan-500/[0.15]",
-      initialX: (windowSize.width * 3) / 4,
-      initialY: (windowSize.height * 2) / 3,
-    },
-    { size: 150, gradient: "from-emerald-500/[0.15]", initialX: windowSize.width / 2, initialY: 50 },
-    { size: 180, gradient: "from-violet-500/[0.15]", initialX: 100, initialY: windowSize.height / 2 },
-  ]
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-16">
