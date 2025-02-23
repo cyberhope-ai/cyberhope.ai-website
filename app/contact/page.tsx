@@ -23,12 +23,14 @@ export default function ContactPage() {
     
     try {
       const form = e.target as HTMLFormElement
-      const data = new FormData(form)
+      const formData = new FormData(form)
+
+      // Add form-name field required by Netlify
+      formData.append("form-name", "contact")
       
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as any).toString()
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData,
       })
 
       if (response.ok) {
@@ -70,6 +72,14 @@ export default function ContactPage() {
           </p>
         </div>
 
+        {/* Hidden form for Netlify form detection */}
+        <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <input type="text" name="company" />
+          <textarea name="message"></textarea>
+        </form>
+
         {isSuccess ? (
           <div className="text-center bg-white/5 p-8 rounded-lg backdrop-blur-sm">
             <h2 className="text-2xl font-bold text-white mb-4">Thank You! 🎉</h2>
@@ -86,12 +96,18 @@ export default function ContactPage() {
         ) : (
           <form
             name="contact"
-            data-netlify="true"
             method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
           >
             <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                 Name
