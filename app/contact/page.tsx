@@ -25,13 +25,12 @@ export default function ContactPage() {
       const form = e.target as HTMLFormElement
       const formData = new FormData(form)
       
-      const response = await fetch(form.action, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(Array.from(formData) as [string, string][]).toString(),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
       })
+
+      const result = await response.json()
 
       if (response.ok) {
         setIsSuccess(true)
@@ -47,7 +46,7 @@ export default function ContactPage() {
           message: "",
         })
       } else {
-        throw new Error('Failed to send message')
+        throw new Error(result.message || 'Failed to send message')
       }
     } catch (error) {
       console.error('Form submission error:', error)
@@ -97,7 +96,6 @@ export default function ContactPage() {
           <form
             name="contact"
             method="POST"
-            action="/contact?success=true"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
