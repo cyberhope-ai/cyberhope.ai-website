@@ -6,6 +6,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 
+// Extend form element types to include Netlify attributes
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    'data-netlify'?: string | boolean
+    'data-netlify-honeypot'?: string
+  }
+}
+
 export default function ContactPage() {
   const { toast } = useToast()
   const [formData, setFormData] = useState({
