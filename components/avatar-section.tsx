@@ -7,19 +7,16 @@ export function AvatarSection() {
     {
       name: "Cyan",
       vimeoId: "1059530948",
-      thumbnailUrl: "/avatars/cyan-thumb.jpg",
       accentColor: "#00ffff"
     },
     {
       name: "Blue",
       vimeoId: "1059530911",
-      thumbnailUrl: "/avatars/blue-thumb.jpg",
       accentColor: "#0000ff"
     },
     {
       name: "Green",
       vimeoId: "1059530882",
-      thumbnailUrl: "/avatars/green-thumb.jpg",
       accentColor: "#00ff00"
     }
   ]

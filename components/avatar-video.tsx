@@ -5,11 +5,10 @@ import { useEffect, useState } from "react"
 interface AvatarVideoProps {
   vimeoId: string
   name: string
-  thumbnailUrl?: string
   accentColor: string
 }
 
-export function AvatarVideo({ vimeoId, name, thumbnailUrl, accentColor }: AvatarVideoProps) {
+export function AvatarVideo({ vimeoId, name, accentColor }: AvatarVideoProps) {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -40,15 +39,6 @@ export function AvatarVideo({ vimeoId, name, thumbnailUrl, accentColor }: Avatar
               }}
             />
           </div>
-        )}
-        
-        {/* Fallback thumbnail */}
-        {thumbnailUrl && !isClient && (
-          <img 
-            src={thumbnailUrl} 
-            alt={`${name} Avatar`}
-            className="w-full h-full object-cover"
-          />
         )}
       </div>
 
