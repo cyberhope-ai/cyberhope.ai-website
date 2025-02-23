@@ -79,4 +79,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 CyberHope.ai - [https://cyberhope.ai](https://cyberhope.ai)
 
-Project Link: [https://github.com/Hope-Training-Academy/cyberhope-website](https://github.com/Hope-Training-Academy/cyberhope-website) 
+Project Link: [https://github.com/Hope-Training-Academy/cyberhope-website](https://github.com/Hope-Training-Academy/cyberhope-website)
