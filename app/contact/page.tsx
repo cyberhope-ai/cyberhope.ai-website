@@ -23,14 +23,15 @@ export default function ContactPage() {
     
     try {
       const form = e.target as HTMLFormElement
-      const formData = new FormData(form)
+      const data = new FormData(form)
       
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        body: formData,
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(Array.from(data) as [string, string][]).toString(),
       })
-
-      const result = await response.json()
 
       if (response.ok) {
         setIsSuccess(true)
@@ -46,7 +47,7 @@ export default function ContactPage() {
           message: "",
         })
       } else {
-        throw new Error(result.message || 'Failed to send message')
+        throw new Error('Failed to send message')
       }
     } catch (error) {
       console.error('Form submission error:', error)
@@ -72,7 +73,7 @@ export default function ContactPage() {
         </div>
 
         {/* Hidden form for Netlify form detection */}
-        <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
           <input type="text" name="name" />
           <input type="email" name="email" />
           <input type="text" name="company" />
@@ -96,8 +97,8 @@ export default function ContactPage() {
           <form
             name="contact"
             method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
+            netlify="true"
+            netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
           >
