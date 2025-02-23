@@ -27,16 +27,21 @@ export function AvatarVideo({ vimeoId, name, accentColor }: AvatarVideoProps) {
       <div className="relative aspect-square w-full max-w-[300px] mx-auto overflow-hidden rounded-full border-2 border-white/10">
         <div className="absolute inset-0 bg-black" /> {/* Black background for better keying */}
         {isClient && (
-          <div className="absolute inset-0 w-full h-full">
+          <div style={{ padding: "100% 0 0 0", position: "relative" }}>
             <iframe
-              src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&byline=0&title=0&transparent=1`}
-              className="absolute w-[300%] h-[300%] -left-[100%] -top-[100%]"
-              allow="autoplay; fullscreen"
+              src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&transparent=1`}
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
               style={{
-                willChange: 'transform',
-                mixBlendMode: 'luminosity',
-                filter: 'contrast(1.1) brightness(1.1)'
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                mixBlendMode: "luminosity",
+                filter: "contrast(1.1) brightness(1.1)"
               }}
+              title={name}
             />
           </div>
         )}
