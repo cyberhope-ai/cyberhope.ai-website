@@ -1,10 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
+
+interface FormData {
+  name: string
+  email: string
+  company: string
+  message: string
+}
 
 // Extend form element types to include Netlify attributes
 declare module 'react' {
@@ -16,7 +23,7 @@ declare module 'react' {
 
 export default function ContactPage() {
   const { toast } = useToast()
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     company: "",
@@ -25,12 +32,12 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
     try {
-      const form = e.target as HTMLFormElement
+      const form = e.currentTarget
       const formData = new FormData(form)
       
       // Submit to our API route first
