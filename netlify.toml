@@ -7,4 +7,19 @@
   NEXT_PUBLIC_SITE_URL = "https://cyberhope.ai"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs" 
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  port = 8888
+  publish = ".next"
+  framework = "nextjs" 

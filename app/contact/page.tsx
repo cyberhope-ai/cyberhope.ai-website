@@ -19,22 +19,19 @@ export default function ContactPage() {
     e.preventDefault()
     
     try {
-      const form = e.target as HTMLFormElement
-      const data = new FormData(form)
-
-      // Encode the form data for Netlify
-      const encodedData = new URLSearchParams()
-      for (const [key, value] of data.entries()) {
-        encodedData.append(key, value.toString())
-      }
-
+      // Submit to Netlify forms
       const response = await fetch('/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: encodedData.toString(),
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          ...formData,
+        }).toString(),
       })
+
+      console.log('Form submission response:', response)
 
       if (response.ok) {
         toast({
@@ -51,6 +48,7 @@ export default function ContactPage() {
         throw new Error('Failed to send message')
       }
     } catch (error) {
+      console.error('Form submission error:', error)
       toast({
         title: "Something went wrong",
         description: "Please try again later or contact us directly.",
@@ -61,6 +59,15 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#030303] py-12 px-4 sm:px-6 lg:px-8">
+      {/* Hidden static form for Netlify detection */}
+      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="company" />
+        <textarea name="message"></textarea>
+        <input name="bot-field" />
+      </form>
+
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4">Book a Demo</h1>
@@ -70,18 +77,9 @@ export default function ContactPage() {
         </div>
 
         <form 
-          method="POST"
-          name="contact"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <div className="hidden">
-            <input name="bot-field" />
-          </div>
-
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
               Name
