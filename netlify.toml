@@ -15,8 +15,8 @@
   directory = "netlify/functions"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
+  from = "/api/form"
+  to = "/.netlify/functions/next-form"
   status = 200
 
 [dev]

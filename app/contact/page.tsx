@@ -23,32 +23,43 @@ export default function ContactPage() {
     
     try {
       const form = e.target as HTMLFormElement
-      const data = new FormData(form)
+      const formData = new FormData(form)
       
-      const response = await fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(Array.from(data) as [string, string][]).toString(),
+      // Submit to our API route first
+      const apiResponse = await fetch('/api/form', {
+        method: 'POST',
+        body: formData,
       })
 
-      if (response.ok) {
-        setIsSuccess(true)
-        toast({
-          title: "Message sent successfully! 🎉",
-          description: "Thank you for reaching out. We'll get back to you as soon as possible.",
-          duration: 5000,
-        })
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          message: "",
-        })
-      } else {
-        throw new Error('Failed to send message')
+      if (!apiResponse.ok) {
+        throw new Error('Failed to submit form')
       }
+
+      // Then submit to Netlify
+      const netlifyResponse = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(Array.from(formData) as [string, string][]).toString(),
+      })
+
+      if (!netlifyResponse.ok) {
+        throw new Error('Failed to submit to Netlify')
+      }
+
+      setIsSuccess(true)
+      toast({
+        title: "Message sent successfully! 🎉",
+        description: "Thank you for reaching out. We'll get back to you as soon as possible.",
+        duration: 5000,
+      })
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+      })
     } catch (error) {
       console.error('Form submission error:', error)
       toast({
@@ -73,7 +84,7 @@ export default function ContactPage() {
         </div>
 
         {/* Hidden form for Netlify form detection */}
-        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
           <input type="text" name="name" />
           <input type="email" name="email" />
           <input type="text" name="company" />
@@ -97,8 +108,8 @@ export default function ContactPage() {
           <form
             name="contact"
             method="POST"
-            netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
           >
