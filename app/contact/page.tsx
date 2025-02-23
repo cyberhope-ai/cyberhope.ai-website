@@ -24,13 +24,13 @@ export default function ContactPage() {
     try {
       const form = e.target as HTMLFormElement
       const formData = new FormData(form)
-
-      // Add form-name field required by Netlify
-      formData.append("form-name", "contact")
       
-      const response = await fetch("/", {
+      const response = await fetch(form.action, {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(Array.from(formData) as [string, string][]).toString(),
       })
 
       if (response.ok) {
@@ -73,7 +73,7 @@ export default function ContactPage() {
         </div>
 
         {/* Hidden form for Netlify form detection */}
-        <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
           <input type="text" name="name" />
           <input type="email" name="email" />
           <input type="text" name="company" />
@@ -97,8 +97,9 @@ export default function ContactPage() {
           <form
             name="contact"
             method="POST"
+            action="/contact?success=true"
             data-netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
           >
