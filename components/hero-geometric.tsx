@@ -10,32 +10,63 @@ function CircularShape({
   gradient = "from-white/[0.08]",
   initialX,
   initialY,
+  index = 0,
 }: {
   className?: string
   size?: number
   gradient?: string
   initialX: number
   initialY: number
+  index?: number
 }) {
   const [position, setPosition] = useState({ x: initialX, y: initialY })
+  const [isClient, setIsClient] = useState(false)
+  const [time, setTime] = useState(0)
 
   useEffect(() => {
-    // Move immediately on mount
-    if (typeof window !== 'undefined') {
-      const moveShape = () => {
-        const newX = Math.random() * window.innerWidth
-        const newY = Math.random() * window.innerHeight
-        setPosition({ x: newX, y: newY })
+    setIsClient(true)
+    const moveShape = () => {
+      if (typeof window !== 'undefined') {
+        const maxX = Math.max(window.innerWidth - size, 0)
+        const maxY = Math.max(window.innerHeight - size, 0)
+        
+        // Create unique movement patterns for each circle
+        const baseRadius = Math.min(maxX, maxY) / 3
+        const radiusX = baseRadius * (1 + Math.sin(index * 0.5)) // Vary the radius based on index
+        const radiusY = baseRadius * (1 + Math.cos(index * 0.5))
+        
+        // Use time and index to create different paths
+        const angleOffset = (index * Math.PI) / 3 // Spread circles around
+        const speedMultiplier = 0.8 + (index % 3) * 0.4 // Different speeds
+        const currentAngle = (time * speedMultiplier + angleOffset) % (2 * Math.PI)
+        
+        // Calculate center point with offset based on index
+        const centerX = maxX / 2 + Math.cos(index) * (maxX / 6)
+        const centerY = maxY / 2 + Math.sin(index) * (maxY / 6)
+        
+        // Calculate new position using Lissajous curves for more varied movement
+        const newX = centerX + radiusX * Math.cos(currentAngle)
+        const newY = centerY + radiusY * Math.sin(currentAngle * (1 + index * 0.2))
+        
+        // Ensure position stays within bounds
+        setPosition({
+          x: Math.max(0, Math.min(maxX, newX)),
+          y: Math.max(0, Math.min(maxY, newY))
+        })
+        
+        setTime(t => t + 0.02) // Increment time for continuous movement
       }
-
-      // Move once immediately
-      moveShape()
-      
-      // Then set up interval
-      const interval = setInterval(moveShape, Math.random() * 3000 + 2000)
-      return () => clearInterval(interval)
     }
-  }, [])
+
+    // Use different intervals for each circle
+    const baseInterval = 50 // 50ms base interval for smooth animation
+    const interval = setInterval(moveShape, baseInterval)
+    return () => clearInterval(interval)
+  }, [size, index, time])
+
+  if (!isClient) {
+    return null
+  }
 
   return (
     <motion.div
@@ -49,9 +80,8 @@ function CircularShape({
       transition={{
         opacity: { duration: 0.3 },
         scale: { duration: 0.3 },
-        x: { duration: 3 },
-        y: { duration: 3 },
-        ease: "easeOut",
+        x: { duration: 0.2, ease: "linear" },
+        y: { duration: 0.2, ease: "linear" },
       }}
       className={`absolute ${className}`}
       style={{ width: size, height: size }}
@@ -64,46 +94,12 @@ function CircularShape({
 }
 
 export default function HeroGeometric() {
+  const [isClient, setIsClient] = useState(false)
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
-  const [circles, setCircles] = useState([
-    { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
-    { size: 300, gradient: "from-rose-500/[0.15]", initialX: 0, initialY: 0 },
-    { size: 250, gradient: "from-amber-500/[0.15]", initialX: 0, initialY: 0 },
-    { size: 200, gradient: "from-cyan-500/[0.15]", initialX: 0, initialY: 0 },
-    { size: 150, gradient: "from-emerald-500/[0.15]", initialX: 0, initialY: 0 },
-    { size: 180, gradient: "from-violet-500/[0.15]", initialX: 0, initialY: 0 },
-  ])
 
   useEffect(() => {
+    setIsClient(true)
     if (typeof window !== 'undefined') {
-      const width = window.innerWidth
-      const height = window.innerHeight
-      
-      setWindowSize({ width, height })
-      setCircles([
-        { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
-        {
-          size: 300,
-          gradient: "from-rose-500/[0.15]",
-          initialX: Math.max(width - 150, 0),
-          initialY: height / 4,
-        },
-        {
-          size: 250,
-          gradient: "from-amber-500/[0.15]",
-          initialX: width / 4,
-          initialY: Math.max(height - 125, 0),
-        },
-        {
-          size: 200,
-          gradient: "from-cyan-500/[0.15]",
-          initialX: (width * 3) / 4,
-          initialY: (height * 2) / 3,
-        },
-        { size: 150, gradient: "from-emerald-500/[0.15]", initialX: width / 2, initialY: 50 },
-        { size: 180, gradient: "from-violet-500/[0.15]", initialX: 100, initialY: height / 2 },
-      ])
-
       const handleResize = () => {
         setWindowSize({
           width: window.innerWidth,
@@ -111,10 +107,39 @@ export default function HeroGeometric() {
         })
       }
 
+      handleResize()
       window.addEventListener('resize', handleResize)
       return () => window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+  const circles = [
+    { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
+    {
+      size: 300,
+      gradient: "from-rose-500/[0.15]",
+      initialX: Math.max(windowSize.width - 150, 0),
+      initialY: windowSize.height / 4,
+    },
+    {
+      size: 250,
+      gradient: "from-amber-500/[0.15]",
+      initialX: windowSize.width / 4,
+      initialY: Math.max(windowSize.height - 125, 0),
+    },
+    {
+      size: 200,
+      gradient: "from-cyan-500/[0.15]",
+      initialX: (windowSize.width * 3) / 4,
+      initialY: (windowSize.height * 2) / 3,
+    },
+    { size: 150, gradient: "from-emerald-500/[0.15]", initialX: windowSize.width / 2, initialY: 50 },
+    { size: 180, gradient: "from-violet-500/[0.15]", initialX: 100, initialY: windowSize.height / 2 },
+  ]
+
+  if (!isClient) {
+    return null
+  }
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-16">
@@ -122,6 +147,7 @@ export default function HeroGeometric() {
         {circles.map((circle, index) => (
           <CircularShape
             key={index}
+            index={index}
             size={circle.size}
             gradient={circle.gradient}
             initialX={circle.initialX}

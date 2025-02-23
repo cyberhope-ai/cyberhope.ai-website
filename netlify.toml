@@ -5,6 +5,8 @@
 [build.environment]
   NODE_VERSION = "18"
   NEXT_PUBLIC_SITE_URL = "https://cyberhope.ai"
+  NEXT_USE_NETLIFY_EDGE = "true"
+  NEXT_USE_NETLIFY_FORMS = "true"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
