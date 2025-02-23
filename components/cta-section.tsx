@@ -1,4 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 interface CTASectionProps {
   title: string
@@ -8,15 +11,15 @@ interface CTASectionProps {
 
 export function CTASection({ title, description, buttonText }: CTASectionProps) {
   return (
-    <div className="py-20 bg-indigo-900 text-white">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{title}</h2>
-        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">{description}</p>
-        <Button size="lg" className="bg-white text-indigo-900 hover:bg-white/90">
-          {buttonText}
+    <section className="py-24 bg-[#3730A3]">
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">{title}</h2>
+        <p className="text-xl text-white/80 mb-8">{description}</p>
+        <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
+          <Link href="/contact">{buttonText}</Link>
         </Button>
       </div>
-    </div>
+    </section>
   )
 }
 

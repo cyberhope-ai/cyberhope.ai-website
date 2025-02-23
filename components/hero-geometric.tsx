@@ -18,17 +18,23 @@ function CircularShape({
   initialY: number
 }) {
   const [position, setPosition] = useState({ x: initialX, y: initialY })
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const moveShape = () => {
-      const newX = Math.random() * window.innerWidth
-      const newY = Math.random() * window.innerHeight
-      setPosition({ x: newX, y: newY })
+      if (typeof window !== 'undefined') {
+        const newX = Math.random() * window.innerWidth
+        const newY = Math.random() * window.innerHeight
+        setPosition({ x: newX, y: newY })
+      }
     }
 
     const interval = setInterval(moveShape, Math.random() * 5000 + 5000)
     return () => clearInterval(interval)
   }, [])
+
+  if (!mounted) return null
 
   return (
     <motion.div
@@ -54,40 +60,44 @@ function CircularShape({
 }
 
 export default function HeroGeometric() {
-  const [windowSize, setWindowSize] = useState({ width: 1200, height: 800 })
-  
-  useEffect(() => {
-    // Set initial window size
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight
-    })
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+  const [mounted, setMounted] = useState(false)
 
-    // Handle window resize
-    const handleResize = () => {
+  useEffect(() => {
+    setMounted(true)
+    if (typeof window !== 'undefined') {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight
       })
-    }
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+      const handleResize = () => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight
+        })
+      }
+
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
   }, [])
+
+  if (!mounted) return null
 
   const circles = [
     { size: 400, gradient: "from-indigo-500/[0.15]", initialX: -100, initialY: -100 },
     {
       size: 300,
       gradient: "from-rose-500/[0.15]",
-      initialX: windowSize.width - 150,
+      initialX: Math.max(windowSize.width - 150, 0),
       initialY: windowSize.height / 4,
     },
     {
       size: 250,
       gradient: "from-amber-500/[0.15]",
       initialX: windowSize.width / 4,
-      initialY: windowSize.height - 125,
+      initialY: Math.max(windowSize.height - 125, 0),
     },
     {
       size: 200,
@@ -100,7 +110,7 @@ export default function HeroGeometric() {
   ]
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-16">
       <div className="absolute inset-0 overflow-hidden">
         {circles.map((circle, index) => (
           <CircularShape
@@ -131,11 +141,8 @@ export default function HeroGeometric() {
         </p>
 
         <div className="flex items-center justify-center gap-4">
-          <Button size="lg" className="bg-white text-black hover:bg-white/90">
-            Book a Demo →
-          </Button>
-          <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-            Build AI →
+          <Button size="lg" className="bg-white text-black hover:bg-white/90" asChild>
+            <a href="/contact">Book a Demo →</a>
           </Button>
         </div>
       </div>
