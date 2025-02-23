@@ -20,12 +20,20 @@ export default function ContactPage() {
     
     try {
       const form = e.target as HTMLFormElement
-      const formData = new FormData(form)
+      const data = new FormData(form)
+
+      // Encode the form data for Netlify
+      const encodedData = new URLSearchParams()
+      for (const [key, value] of data.entries()) {
+        encodedData.append(key, value.toString())
+      }
 
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: encodedData.toString(),
       })
 
       if (response.ok) {
@@ -33,7 +41,6 @@ export default function ContactPage() {
           title: "Thanks for reaching out!",
           description: "We'll get back to you as soon as possible.",
         })
-        // Clear the form
         setFormData({
           name: "",
           email: "",
@@ -63,22 +70,25 @@ export default function ContactPage() {
         </div>
 
         <form 
-          onSubmit={handleSubmit} 
-          className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
+          method="POST"
           name="contact"
           data-netlify="true"
           netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+          className="space-y-6 bg-white/5 p-8 rounded-lg backdrop-blur-sm"
         >
           <input type="hidden" name="form-name" value="contact" />
           <div className="hidden">
             <input name="bot-field" />
           </div>
+
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
               Name
             </label>
             <Input
               id="name"
+              name="name"
               type="text"
               required
               className="bg-white/10 border-white/20 text-white"
@@ -93,6 +103,7 @@ export default function ContactPage() {
             </label>
             <Input
               id="email"
+              name="email"
               type="email"
               required
               className="bg-white/10 border-white/20 text-white"
@@ -107,6 +118,7 @@ export default function ContactPage() {
             </label>
             <Input
               id="company"
+              name="company"
               type="text"
               className="bg-white/10 border-white/20 text-white"
               value={formData.company}
@@ -120,6 +132,7 @@ export default function ContactPage() {
             </label>
             <Textarea
               id="message"
+              name="message"
               required
               className="bg-white/10 border-white/20 text-white min-h-[150px]"
               value={formData.message}
