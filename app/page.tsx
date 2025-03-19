@@ -1,7 +1,8 @@
 import HeroGeometric from "@/components/hero-geometric"
 import { CTASection } from "@/components/cta-section"
 import { TextSection } from "@/components/text-section"
-import { FeatureSection } from "@/components/feature-section"
+// import { FeatureSection } from "@/components/feature-section"
+import { FeatureSectionCustom } from "@/components/feature-section-custom"
 // import { VideoSection } from "@/components/video-section"
 import { AvatarSection } from "@/components/avatar-section"
 import { Database, Cloud, Shield, Zap, BarChartIcon as ChartBar, Users, FileCheck, GraduationCap, CpuIcon } from "lucide-react"
@@ -19,7 +20,7 @@ export default function Home() {
 
       <AvatarSection />
       
-      <FeatureSection
+      <FeatureSectionCustom
         title="Empowering the Digital Workforce"
         description="Through our USDOL-registered Hope Training Academy, we're transforming IT and cybersecurity apprenticeships with cutting-edge technology."
         features={[

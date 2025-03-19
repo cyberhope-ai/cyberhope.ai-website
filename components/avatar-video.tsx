@@ -29,7 +29,7 @@ export function AvatarVideo({ vimeoId, name, accentColor }: AvatarVideoProps) {
         {isClient && (
           <div style={{ padding: "100% 0 0 0", position: "relative" }}>
             <iframe
-              src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&transparent=1&muted=1`}
+              src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&transparent=1&muted=1&controls=0`}
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
               style={{
@@ -38,8 +38,9 @@ export function AvatarVideo({ vimeoId, name, accentColor }: AvatarVideoProps) {
                 left: "0",
                 width: "100%",
                 height: "100%",
-                mixBlendMode: "luminosity",
-                filter: "contrast(1.1) brightness(1.1)"
+                mixBlendMode: "normal",
+                filter: "contrast(1.2) brightness(1.2)",
+                zIndex: 10
               }}
               title={name}
             />
