@@ -16,7 +16,7 @@ export function CTASection({ title, description, buttonText }: CTASectionProps) 
         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">{title}</h2>
         <p className="text-xl text-white/80 mb-8">{description}</p>
         <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
-          <Link href="/contact">{buttonText}</Link>
+          <a href="https://forms.gle/Gq7ryAujxxEgehU26" target="_blank" rel="noopener noreferrer">{buttonText}</a>
         </Button>
       </div>
     </section>

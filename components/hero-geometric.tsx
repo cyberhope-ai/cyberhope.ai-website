@@ -175,7 +175,7 @@ export default function HeroGeometric() {
 
         <div className="flex items-center justify-center gap-4">
           <Button size="lg" className="bg-white text-black hover:bg-white/90" asChild>
-            <a href="/contact">Contact Us →</a>
+            <a href="https://forms.gle/Gq7ryAujxxEgehU26" target="_blank" rel="noopener noreferrer">Contact Us →</a>
           </Button>
         </div>
       </div>
