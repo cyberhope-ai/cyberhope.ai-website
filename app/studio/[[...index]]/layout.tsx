@@ -1,16 +1,9 @@
-export const metadata = {
-  title: 'CyberHope.ai Studio',
-  description: 'Content management for CyberHope.ai',
-}
+'use client'
 
-export default function RootLayout({
+export default function StudioLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+  return children
 } 

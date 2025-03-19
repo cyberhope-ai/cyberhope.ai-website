@@ -7,10 +7,10 @@ export default defineConfig({
   name: 'default',
   title: 'CyberHope.ai',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'YOUR_PROJECT_ID', // Replace YOUR_PROJECT_ID with actual ID if not using env var
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: 'qpk3k6kb',
+  dataset: 'production',
   apiVersion: '2023-05-03',
-  basePath: '/studio', // Studio will be accessible at /studio
+  basePath: '/studio',
 
   plugins: [
     deskTool(),
