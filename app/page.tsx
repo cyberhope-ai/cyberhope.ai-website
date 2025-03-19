@@ -2,9 +2,8 @@ import HeroGeometric from "@/components/hero-geometric"
 import { CTASection } from "@/components/cta-section"
 import { TextSection } from "@/components/text-section"
 import { FeatureSection } from "@/components/feature-section"
-import { VideoSection } from "@/components/video-section"
 import { AvatarSection } from "@/components/avatar-section"
-import { Database, Cloud, Shield, Zap, BarChartIcon as ChartBar, Users } from "lucide-react"
+import { Database, Cloud, Shield } from "lucide-react"
 
 export default function Home() {
   return (
@@ -18,12 +17,6 @@ export default function Home() {
       />
 
       <AvatarSection />
-
-      <VideoSection
-        vimeoId="824804225"
-        title="See CyberHope.ai in Action"
-        subtitle="Watch how our AI solutions are revolutionizing enterprise capabilities"
-      />
       
       <FeatureSection
         title="Why Choose CyberHope AI"

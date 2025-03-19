@@ -13,6 +13,16 @@ export function AvatarVideo({ vimeoId, name, accentColor }: AvatarVideoProps) {
 
   useEffect(() => {
     setIsClient(true)
+    
+    // Load Vimeo player API
+    const script = document.createElement('script')
+    script.src = "https://player.vimeo.com/api/player.js"
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
   }, [])
 
   return (
@@ -27,17 +37,13 @@ export function AvatarVideo({ vimeoId, name, accentColor }: AvatarVideoProps) {
       <div className="relative aspect-square w-full max-w-[300px] mx-auto overflow-hidden rounded-full border-2 border-white/10">
         <div className="absolute inset-0 bg-black" /> {/* Black background for better keying */}
         {isClient && (
-          <div style={{ padding: "100% 0 0 0", position: "relative" }}>
+          <div className="absolute inset-0">
             <iframe
-              src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&background=1&autoplay=1&loop=1&transparent=1`}
+              src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&loop=1&autopause=0&muted=0&controls=0&background=0&app_id=58479`}
               frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              allow="autoplay; fullscreen"
+              className="absolute w-[150%] h-[150%] -left-[25%] -top-[25%]"
               style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "100%",
-                height: "100%",
                 mixBlendMode: "luminosity",
                 filter: "contrast(1.1) brightness(1.1)"
               }}

@@ -1,1 +1,77 @@
- 
+# Next.js Project Setup Rules
+
+## Required Software
+- Node.js 18+ (LTS recommended)
+- PowerShell 7+ (`pwsh`)
+- Git
+- Visual Studio Code or Cursor IDE
+
+## Dependencies Installation
+```bash
+# Use legacy peer deps to handle dependency conflicts
+npm install --legacy-peer-deps
+```
+
+## Known Issues and Solutions
+1. If encountering PowerShell issues:
+   - Install PowerShell 7+ from: https://github.com/PowerShell/PowerShell/releases
+   - Update Cursor settings.json with:
+   ```json
+   "terminal.integrated.profiles.windows": {
+     "PowerShell": {
+       "source": "PowerShell",
+       "icon": "terminal-powershell",
+       "path": ["C:\\Program Files\\PowerShell\\7\\pwsh.exe", "C:\\Windows\\System32\\WindowsPowerShell\\1.0\\powershell.exe"]
+     }
+   },
+   "terminal.integrated.defaultProfile.windows": "PowerShell"
+   ```
+
+2. For window/document reference errors:
+   - Use proper Next.js client components
+   - Add "use client" directive at the top of components using browser APIs
+   - Wrap browser API calls in useEffect hooks
+
+## Required Cursor Extensions
+- TypeScript
+- ESLint
+- Prettier
+- Tailwind CSS IntelliSense
+- GitLens
+
+## Environment Setup
+```env
+# Create a .env.local file with:
+NEXT_PUBLIC_API_URL=your_api_url_here
+NODE_ENV=development
+```
+
+## Development Commands
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Lint code
+npm run lint
+```
+
+## Git Setup
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+## Project Structure
+- `/app` - Next.js 13+ app router pages
+- `/components` - Reusable React components
+- `/public` - Static assets
+- `/styles` - Global styles and Tailwind config
+- `/lib` - Utility functions and shared logic
+- `/hooks` - Custom React hooks 
