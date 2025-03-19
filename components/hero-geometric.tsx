@@ -163,19 +163,19 @@ export default function HeroGeometric() {
           </span>
         </h1>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          <span className="text-white">Empower Your Passion.</span>
+          <span className="text-white">Verified Skills.</span>
           <br />
-          <span className="text-white">Unlock Your Potential</span>
+          <span className="text-white">Secure Future.</span>
         </h2>
 
         <p className="text-lg md:text-xl text-white/60 mb-8 max-w-3xl mx-auto px-4">
-          Make the best models with the best data. CyberHope AI Engine powers nearly every major foundation model,
-          leveraging your enterprise data to unlock the value of AI.
+          Revolutionizing workforce intelligence through AI-powered skills verification. Our USDOL-registered 
+          apprenticeship programs bridge education and employment in cybersecurity and IT.
         </p>
 
         <div className="flex items-center justify-center gap-4">
           <Button size="lg" className="bg-white text-black hover:bg-white/90" asChild>
-            <a href="/contact">Book a Demo →</a>
+            <a href="https://forms.gle/Gq7ryAujxxEgehU26" target="_blank" rel="noopener noreferrer">Contact Us →</a>
           </Button>
         </div>
       </div>

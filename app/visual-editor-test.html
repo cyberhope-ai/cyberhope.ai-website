@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Editor Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #0070f3;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .editable {
+      border: 1px dashed #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Visual Editor Test Page</h1>
+  
+  <div class="editable" data-netlify-visual-edit="true">
+    <p>This text should be editable in the Netlify Visual Editor.</p>
+    <p>If you can edit this text, the Visual Editor is working!</p>
+  </div>
+  
+  <div class="editable" data-netlify-visual-edit="true">
+    <h2>Another Editable Section</h2>
+    <p>Try editing this content too.</p>
+  </div>
+</body>
+</html> 
