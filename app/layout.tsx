@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import { Nav } from '@/components/nav'
+import { Footer } from '@/components/footer'
 import { Toaster } from '@/components/ui/toaster'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: 'CyberHope.ai',
-  description: 'Empower Your Passion. Unlock Your Potential with CyberHope AI Engine.',
+  title: 'CyberHope™ - Skills Verified. Futures Unlocked.',
+  description: 'AI-powered workforce platform replacing résumés with SkillDNA™, built as part of Precognition OS™. From the creators of Hope Training Academy.',
 }
 
 export default function RootLayout({
@@ -26,6 +27,7 @@ export default function RootLayout({
         >
           <Nav />
           {children}
+          <Footer />
         </ThemeProvider>
         <Toaster />
         <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />

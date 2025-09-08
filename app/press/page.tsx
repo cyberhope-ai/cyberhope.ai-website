@@ -1,10 +1,6 @@
-import { Nav } from "@/components/nav"
-
 export default function PressPage() {
   return (
-    <>
-      <Nav />
-      <main className="min-h-screen bg-black pt-20">
+    <main className="min-h-screen bg-black pt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <article className="prose prose-invert max-w-none">
             <header className="mb-8">
@@ -93,6 +89,5 @@ export default function PressPage() {
           </article>
         </div>
       </main>
-    </>
   )
 }

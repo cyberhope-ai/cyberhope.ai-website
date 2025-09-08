@@ -68,7 +68,6 @@ export default function Home() {
         title="Join the Workforce Revolution"
         description="Interested in pilots, partnerships, or apprenticeships? Contact us to learn how SkillDNA™ can transform your organization."
         buttonText="Contact Us →"
-        buttonLink="mailto:rick@cyberhopeai.com"
       />
     </main>
   )
