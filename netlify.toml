@@ -3,7 +3,7 @@
   publish = "out"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
   NEXT_PUBLIC_SITE_URL = "https://cyberhope.ai"
   NEXT_USE_NETLIFY_EDGE = "true"
   NEXT_USE_NETLIFY_FORMS = "true"
@@ -20,11 +20,6 @@
 [[redirects]]
   from = "/api/form"
   to = "/.netlify/functions/next-form"
-  status = 200
-
-[[redirects]]
-  from = "/studio/*"
-  to = "/studio/[[...index]]/page"
   status = 200
 
 [dev]
