@@ -13,41 +13,41 @@ export default function Home() {
       <HeroGeometric />
       
       <TextSection
-        title="Revolutionizing Workforce Intelligence"
-        description="CyberHope.ai empowers individuals with verified, lifelong skills through advanced AI assessment. We bridge the gap between education and employment, validating technical and cybersecurity competencies in real time."
+        title="Transforming Digital Innovation"
+        description="CyberHope.ai is pioneering the future of AI-powered technology solutions. We're building cutting-edge platforms that leverage advanced artificial intelligence to solve complex challenges across multiple industries."
         align="center"
       />
 
       <AvatarSection />
       
       <FeatureSectionCustom
-        title="Empowering the Digital Workforce"
-        description="Through our USDOL-registered Hope Training Academy, we're transforming IT and cybersecurity apprenticeships with cutting-edge technology."
+        title="Leading AI Innovation"
+        description="We're developing comprehensive AI solutions that address real-world challenges with cutting-edge technology and strategic partnerships."
         features={[
           {
-            icon: <FileCheck />,
-            title: "Verified Skills",
-            description: "AI-powered assessment and validation of technical competencies in real time.",
+            icon: <CpuIcon />,
+            title: "Advanced AI Platform",
+            description: "State-of-the-art artificial intelligence infrastructure for scalable, real-time processing and analysis.",
           },
           {
-            icon: <GraduationCap />,
-            title: "Apprenticeship Programs",
-            description: "USDOL-registered training programs focused on cybersecurity and IT skills.",
+            icon: <Cloud />,
+            title: "Cloud-Native Architecture",
+            description: "Fully integrated cloud solutions leveraging Google Cloud Platform for global scale and reliability.",
           },
           {
             icon: <Shield />,
-            title: "Secure Workforce",
-            description: "Building a secure digital workforce for the rapidly changing technology landscape.",
+            title: "Enterprise Security",
+            description: "Comprehensive security framework ensuring data protection and compliance across all operations.",
           },
           {
-            icon: <CpuIcon />,
-            title: "Advanced Technology",
-            description: "Leveraging cutting-edge AI for real-time video analysis and scalable inference.",
+            icon: <ChartBar />,
+            title: "Data Intelligence",
+            description: "Advanced analytics and machine learning models delivering actionable insights from complex data.",
           },
           {
             icon: <Users />,
-            title: "Bridging Gaps",
-            description: "Connecting education and employment through verified skills assessment.",
+            title: "Strategic Partnerships",
+            description: "Collaborating with industry leaders including Google, NVIDIA, and enterprise clients.",
           },
           {
             icon: <Zap />,

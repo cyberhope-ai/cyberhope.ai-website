@@ -163,14 +163,14 @@ export default function HeroGeometric() {
           </span>
         </h1>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          <span className="text-white">Verified Skills.</span>
+          <span className="text-white">AI Innovation.</span>
           <br />
-          <span className="text-white">Secure Future.</span>
+          <span className="text-white">Powered by Google Cloud.</span>
         </h2>
 
         <p className="text-lg md:text-xl text-white/60 mb-8 max-w-3xl mx-auto px-4">
-          Revolutionizing workforce intelligence through AI-powered skills verification. Our USDOL-registered 
-          apprenticeship programs bridge education and employment in cybersecurity and IT.
+          Building next-generation AI solutions with enterprise-grade infrastructure. Partnering with 
+          industry leaders to deliver scalable, secure technology platforms.
         </p>
 
         <div className="flex items-center justify-center gap-4">
