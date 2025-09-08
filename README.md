@@ -8,7 +8,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/placeholder/deploy-status)](https://app.netlify.com/sites/cyberhope-ai-website/deploys)
 
-**Professional marketing platform showcasing AI-powered solutions, technologies, and use cases for the CyberHope ecosystem.**
+**Enterprise AI platform leveraging Google Cloud infrastructure for scalable, secure technology solutions.**
 
 [🌐 Live Website](https://cyberhope.ai) • [📖 Documentation](#documentation) • [🚀 Quick Start](#quick-start) • [🤝 Contributing](#contributing)
 
