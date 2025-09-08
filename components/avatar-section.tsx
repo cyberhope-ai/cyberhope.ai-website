@@ -57,9 +57,9 @@ export function AvatarSection() {
     <section className="py-24 bg-[#030303]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">Enterprise AI Solutions</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Precognition OS™ in Action</h2>
           <p className="text-lg text-white/60 max-w-3xl mx-auto">
-            Our advanced AI platform delivers real-time processing, scalable infrastructure, and enterprise-grade security for mission-critical applications
+            Experience how our universal foresight framework unites human cognition, AI intelligence, and machine data to predict and guide human potential
           </p>
         </div>
         

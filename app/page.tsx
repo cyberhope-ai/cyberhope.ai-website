@@ -13,61 +13,62 @@ export default function Home() {
       <HeroGeometric />
       
       <TextSection
-        title="Transforming Digital Innovation"
-        description="CyberHope.ai is pioneering the future of AI-powered technology solutions. We're building cutting-edge platforms that leverage advanced artificial intelligence to solve complex challenges across multiple industries."
+        title="Skills Verified. Futures Unlocked."
+        description="An AI-powered workforce platform replacing résumés with SkillDNA™, built as part of Precognition OS™ — a universal foresight framework that unites human cognition, AI intelligence, and machine data."
         align="center"
       />
 
       <AvatarSection />
       
       <FeatureSectionCustom
-        title="Leading AI Innovation"
-        description="We're developing comprehensive AI solutions that address real-world challenges with cutting-edge technology and strategic partnerships."
+        title="Workforce Innovation Platform"
+        description="Built on real-world training and powered by Precognition OS™"
         features={[
           {
-            icon: <CpuIcon />,
-            title: "Advanced AI Platform",
-            description: "State-of-the-art artificial intelligence infrastructure for scalable, real-time processing and analysis.",
+            icon: <FileCheck />,
+            title: "AI-Verified Skills",
+            description: "SkillDNA™ replaces résumés with verifiable skill profiles, proving what people can actually do.",
           },
           {
-            icon: <Cloud />,
-            title: "Cloud-Native Architecture",
-            description: "Fully integrated cloud solutions leveraging Google Cloud Platform for global scale and reliability.",
-          },
-          {
-            icon: <Shield />,
-            title: "Enterprise Security",
-            description: "Comprehensive security framework ensuring data protection and compliance across all operations.",
-          },
-          {
-            icon: <ChartBar />,
-            title: "Data Intelligence",
-            description: "Advanced analytics and machine learning models delivering actionable insights from complex data.",
+            icon: <GraduationCap />,
+            title: "Hands-On Training",
+            description: "Built with real-world labs and U.S. Department of Labor–registered apprenticeships.",
           },
           {
             icon: <Users />,
-            title: "Strategic Partnerships",
-            description: "Collaborating with industry leaders including Google, NVIDIA, and enterprise clients.",
+            title: "For All Industries",
+            description: "Expanding from IT & Cybersecurity into healthcare, manufacturing, logistics, and gaming.",
           },
           {
-            icon: <Zap />,
-            title: "Innovative Solutions",
-            description: "Transforming workforce needs with scalable, innovative technology.",
+            icon: <CpuIcon />,
+            title: "Precognition OS™",
+            description: "Universal foresight framework uniting human cognition, AI intelligence, and machine data.",
+          },
+          {
+            icon: <Cloud />,
+            title: "Enterprise Scale",
+            description: "Optimized across NVIDIA, Google Cloud, and AWS from edge to quantum-ready environments.",
+          },
+          {
+            icon: <Shield />,
+            title: "Hope Training Roots",
+            description: "Created in partnership with Hope Training Academy, serving thousands of diverse learners.",
           },
         ]}
       />
 
       <TextSection
-        title="Building the Future of Work"
-        description="Our mission is to create a verified, skilled technical workforce through advanced AI and real-time assessment. Join us in revolutionizing how skills are validated and utilized in the digital economy."
+        title="From Real Needs to Real Solutions"
+        description="CyberHope was created in a grassroots lab beginning in 2018, after recognizing how traditional credentials were failing underrepresented communities. Today, we're scaling pilots and partnerships across industries."
         align="center"
         theme="dark"
       />
 
       <CTASection
-        title="Ready to Transform Your Workforce?"
-        description="Discover how CyberHope.ai can help you build a verified, skilled team through our apprenticeship programs and AI-powered skills validation."
+        title="Join the Workforce Revolution"
+        description="Interested in pilots, partnerships, or apprenticeships? Contact us to learn how SkillDNA™ can transform your organization."
         buttonText="Contact Us →"
+        buttonLink="mailto:rick@cyberhopeai.com"
       />
     </main>
   )

@@ -163,19 +163,19 @@ export default function HeroGeometric() {
           </span>
         </h1>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          <span className="text-white">AI Innovation.</span>
+          <span className="text-white">Skills Verified.</span>
           <br />
-          <span className="text-white">Powered by Google Cloud.</span>
+          <span className="text-white">Futures Unlocked.</span>
         </h2>
 
         <p className="text-lg md:text-xl text-white/60 mb-8 max-w-3xl mx-auto px-4">
-          Building next-generation AI solutions with enterprise-grade infrastructure. Partnering with 
-          industry leaders to deliver scalable, secure technology platforms.
+          An AI-powered workforce platform replacing résumés with SkillDNA™, 
+          built as part of Precognition OS™.
         </p>
 
         <div className="flex items-center justify-center gap-4">
           <Button size="lg" className="bg-white text-black hover:bg-white/90" asChild>
-            <a href="https://forms.gle/Gq7ryAujxxEgehU26" target="_blank" rel="noopener noreferrer">Contact Us →</a>
+            <a href="/press">Read the Press Release →</a>
           </Button>
         </div>
       </div>
