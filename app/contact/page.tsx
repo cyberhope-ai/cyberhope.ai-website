@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Metadata } from 'next';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -47,7 +46,7 @@ export default function Contact() {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
