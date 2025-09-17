@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const WEB3FORMS_ACCESS_KEY = 'c6756334-43b4-408d-9242-f925a7e6176c';
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -22,30 +24,50 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Here you would typically:
-    // 1. Save to database
-    // 2. Send email notification
-    // 3. Integrate with CRM
-    // For now, we'll just log the submission
-    console.log('Contact form submission:', {
-      name,
-      organization,
-      email,
-      interest,
-      message,
-      timestamp: new Date().toISOString(),
+    // Submit to Web3Forms
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `New Investment Inquiry from ${name} - ${organization}`,
+        from_name: 'CyberHopeAI Website',
+        name: name,
+        organization: organization,
+        email: email,
+        interest: interest,
+        message: message || 'No additional message provided',
+        // Additional metadata
+        website: 'cyberhopeai.com',
+        timestamp: new Date().toISOString(),
+      }),
     });
 
-    // In a real application, you might want to:
-    // - Send an email to the team
-    // - Save to a database
-    // - Integrate with a CRM system
-    // - Send a confirmation email to the user
+    const result = await response.json();
 
-    return NextResponse.json(
-      { message: 'Contact form submitted successfully' },
-      { status: 200 }
-    );
+    if (result.success) {
+      console.log('Contact form successfully submitted:', {
+        name,
+        organization,
+        email,
+        interest,
+        timestamp: new Date().toISOString(),
+      });
+
+      return NextResponse.json(
+        { message: 'Contact form submitted successfully' },
+        { status: 200 }
+      );
+    } else {
+      console.error('Web3Forms submission failed:', result);
+      return NextResponse.json(
+        { error: 'Failed to submit form. Please try again.' },
+        { status: 400 }
+      );
+    }
   } catch (error) {
     console.error('Error processing contact form:', error);
     return NextResponse.json(
@@ -61,4 +83,3 @@ export async function GET() {
     { status: 405 }
   );
 }
-
