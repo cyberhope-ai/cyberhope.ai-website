@@ -33,7 +33,7 @@ export default function Thesis() {
           <section>
             <h2 className="text-3xl font-bold mb-6 text-sky-300">Our Solution</h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              Precognition OS represents a fundamental breakthrough in AI architecture. Unlike traditional AI systems that are trained for specific tasks, our platform creates AI that can learn, adapt, and develop new skills autonomously. This is the foundation for building a truly skilled digital workforce.
+              Precognition OS™ represents a fundamental breakthrough in AI architecture. Unlike traditional AI systems that are trained for specific tasks, our platform creates AI that can learn, adapt, and develop new skills autonomously. This is the foundation for building a truly skilled digital workforce.
             </p>
             <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6">
               <h3 className="text-xl font-bold mb-4">Competitive Advantages</h3>
@@ -44,7 +44,7 @@ export default function Thesis() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  Proprietary Precognition OS technology platform
+                  Proprietary Precognition OS™ technology platform
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>

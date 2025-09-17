@@ -22,7 +22,7 @@ export default function Technology() {
               Skills Intelligence Engine
             </h1>
             <p className="text-xl text-white/90 leading-relaxed mb-8">
-              At the core of CyberHopeAI&apos;s Precognition OS lies our proprietary Skills Intelligence Engine. This engine is the key to unlocking the potential of SkillDNA profiles, providing unparalleled insights into individual capabilities and potential.
+              At the core of CyberHopeAI&apos;s Precognition OS™ lies our proprietary Skills Intelligence Engine. This engine is the key to unlocking the potential of SkillDNA™ profiles, providing unparalleled insights into individual capabilities and potential.
             </p>
             <Link 
               href="/contact"
@@ -41,21 +41,21 @@ export default function Technology() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-white">How It Works</h2>
               <p className="text-gray-300 leading-relaxed">
-                Our Skills Intelligence Engine analyzes vast datasets of skills, performance data, and industry trends to create unique SkillDNA profiles for each individual. These profiles go beyond traditional resumes, offering a dynamic and comprehensive view of skills, proficiencies, and potential growth areas.
+                Our Skills Intelligence Engine analyzes vast datasets of skills, performance data, and industry trends to create unique SkillDNA™ profiles for each individual. These profiles go beyond traditional resumes, offering a dynamic and comprehensive view of skills, proficiencies, and potential growth areas.
               </p>
             </div>
             
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Precognition OS</h2>
+              <h2 className="text-2xl font-bold text-white">Precognition OS™</h2>
               <p className="text-gray-300 leading-relaxed">
-                The Skills Intelligence Engine is a critical component of Precognition OS, our patent-pending operating system for the future of work. Precognition OS leverages AI and machine learning to provide predictive insights, personalized learning pathways, and optimized talent management solutions.
+                The Skills Intelligence Engine is a critical component of Precognition OS™, our patent-pending operating system for the future of work. Precognition OS™ leverages AI and machine learning to provide predictive insights, personalized learning pathways, and optimized talent management solutions.
               </p>
             </div>
             
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-white">Patent-Pending Technology</h2>
               <p className="text-gray-300 leading-relaxed">
-                The architecture of our Skills Intelligence Engine and Precognition OS is protected by multiple patent applications. Due to the proprietary nature of our technology, detailed architectural diagrams and technical specifications are available under NDA only.
+                The architecture of our Skills Intelligence Engine and Precognition OS™ is protected by multiple patent applications. Due to the proprietary nature of our technology, detailed architectural diagrams and technical specifications are available under NDA only.
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Technology() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">SkillDNA Profiling</h3>
+              <h3 className="text-xl font-bold mb-3 text-white">SkillDNA™ Profiling</h3>
               <p className="text-gray-300">
                 Create comprehensive skill profiles that capture not just current abilities but also learning velocity and future potential.
               </p>

@@ -78,10 +78,10 @@ export default function About() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Precognition OS: The Foundation of CyberHopeAI
+              Precognition OS™: The Foundation of CyberHopeAI
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-400">
-              CyberHopeAI is the first application built on the Precognition OS framework, a revolutionary platform designed to anticipate and address complex challenges with unparalleled accuracy and efficiency.
+              CyberHopeAI is the first application built on the Precognition OS™ framework, a revolutionary platform designed to anticipate and address complex challenges with unparalleled accuracy and efficiency.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -93,7 +93,7 @@ export default function About() {
               </div>
               <h3 className="mt-6 text-xl font-bold">Predictive Analytics</h3>
               <p className="mt-2 text-gray-400">
-                Precognition OS leverages advanced algorithms to predict future outcomes and trends, enabling proactive decision-making.
+                Precognition OS™ leverages advanced algorithms to predict future outcomes and trends, enabling proactive decision-making.
               </p>
             </div>
             <div className="rounded-lg bg-gray-800/50 p-6 border border-gray-700">
@@ -115,7 +115,7 @@ export default function About() {
               </div>
               <h3 className="mt-6 text-xl font-bold">Targeted Solutions</h3>
               <p className="mt-2 text-gray-400">
-                Precognition OS powers CyberHopeAI to deliver highly targeted solutions tailored to specific industry needs and challenges.
+                Precognition OS™ powers CyberHopeAI to deliver highly targeted solutions tailored to specific industry needs and challenges.
               </p>
             </div>
           </div>

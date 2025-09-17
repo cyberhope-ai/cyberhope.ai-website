@@ -36,7 +36,7 @@ export default function Mission() {
           <section>
             <h2 className="text-3xl font-bold mb-6">The New Era of Intelligent Automation</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
-              We&apos;re not just building another AI system – we&apos;re pioneering a new era of intelligent automation. Our Precognition OS represents a fundamental shift in how AI systems learn, adapt, and perform complex tasks. This is the foundation for creating a skilled digital workforce that can handle the most demanding industrial challenges.
+              We&apos;re not just building another AI system – we&apos;re pioneering a new era of intelligent automation. Our Precognition OS™ represents a fundamental shift in how AI systems learn, adapt, and perform complex tasks. This is the foundation for creating a skilled digital workforce that can handle the most demanding industrial challenges.
             </p>
           </section>
 

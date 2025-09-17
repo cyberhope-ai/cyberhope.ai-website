@@ -37,11 +37,11 @@ export default function Home() {
         <h2 className="text-4xl font-bold mb-6">The Bigger Vision</h2>
         <p className="text-lg text-gray-300 mb-8">
           Our goal is to build the world&apos;s first AI with practical, real-world skills. We are developing{" "}
-          <span className="font-bold text-sky-300">Precognition OS</span>, a groundbreaking operating system for AI that enables it to learn, adapt, and perform complex industrial tasks autonomously. This is more than just data analysis; it&apos;s about creating a skilled digital workforce.
+          <span className="font-bold text-sky-300">Precognition OS™</span>, a groundbreaking operating system for AI that enables it to learn, adapt, and perform complex industrial tasks autonomously. This is more than just data analysis; it&apos;s about creating a skilled digital workforce.
         </p>
         <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-6 max-w-3xl mx-auto">
           <p className="text-gray-400">
-            <span className="font-bold text-amber-400">Disclaimer:</span> Access to detailed information about Precognition OS and our technology roadmap is available to accredited investors under a Non-Disclosure Agreement (NDA).
+            <span className="font-bold text-amber-400">Disclaimer:</span> Access to detailed information about Precognition OS™ and our technology roadmap is available to accredited investors under a Non-Disclosure Agreement (NDA).
           </p>
         </div>
       </section>
