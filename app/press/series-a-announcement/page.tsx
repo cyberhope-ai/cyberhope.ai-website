@@ -2,20 +2,54 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'CyberHopeAI Raises $500K Series A Funding - Press Release',
-  description: 'CyberHopeAI announced today it has raised $500,000 in Series A seed funding to accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system.',
+  title: 'CyberHopeAI Raises $500K Series A to Build an Intelligence Operating System for Human Potential',
+  description: 'CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust to accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system that empowers human potential.',
+  keywords: 'CyberHopeAI, Series A, funding, investment, Joan Young Trust, Precognition OS, AI, artificial intelligence, intelligence operating system',
+  authors: [{ name: 'Rick Barretto' }],
+  publisher: 'CyberHopeAI',
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.cyberhopeai.com/press/series-a-announcement',
+  },
   openGraph: {
-    title: 'CyberHopeAI Raises $500K Series A to Build Intelligence Operating System',
-    description: 'Series A funding from Joan Young Trust to accelerate Precognition OS™ development',
+    title: 'CyberHopeAI Raises $500K Series A to Build an Intelligence Operating System for Human Potential',
+    description: 'CyberHopeAI announced $500,000 in Series A seed funding from the Joan Young Trust to accelerate development of Precognition OS™, an intelligence operating system that empowers human potential.',
     type: 'article',
+    url: 'https://www.cyberhopeai.com/press/series-a-announcement',
+    siteName: 'CyberHopeAI',
+    locale: 'en_US',
     publishedTime: '2025-09-09T00:00:00.000Z',
-    authors: ['CyberHopeAI'],
-    tags: ['Series A', 'Funding', 'AI', 'Precognition OS', 'Investment'],
+    modifiedTime: '2025-09-09T00:00:00.000Z',
+    authors: ['Rick Barretto'],
+    section: 'Funding',
+    tags: ['Series A', 'Funding', 'AI', 'Precognition OS', 'Investment', 'Joan Young Trust'],
+    images: [
+      {
+        url: 'https://www.cyberhopeai.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'CyberHopeAI Series A Announcement',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CyberHopeAI Raises $500K Series A Funding',
-    description: 'Building an Intelligence Operating System for Human Potential with Precognition OS™',
+    title: 'CyberHopeAI Raises $500K Series A to Build an Intelligence Operating System',
+    description: 'CyberHopeAI announces $500,000 in Series A seed funding from the Joan Young Trust to accelerate development of Precognition OS™',
+    site: '@cyberhopeai',
+    creator: '@rickbarretto',
+  },
+  other: {
+    'article:publisher': 'CyberHopeAI',
+    'article:section': 'Press Release',
   },
 };
 
@@ -23,26 +57,62 @@ export default function SeriesAAnnouncement() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
+    '@id': 'https://www.cyberhopeai.com/press/series-a-announcement',
     headline: 'CyberHopeAI Raises $500K Series A to Build an Intelligence Operating System for Human Potential',
+    alternativeHeadline: 'CyberHopeAI Secures Series A Funding from Joan Young Trust',
     datePublished: '2025-09-09T00:00:00.000Z',
     dateModified: '2025-09-09T00:00:00.000Z',
+    dateCreated: '2025-09-09T00:00:00.000Z',
     author: {
       '@type': 'Organization',
       name: 'CyberHopeAI',
-      url: 'https://cyberhopeai.com'
+      url: 'https://www.cyberhopeai.com',
+      logo: 'https://www.cyberhopeai.com/logo.png'
     },
     publisher: {
       '@type': 'Organization',
       name: 'CyberHopeAI',
-      url: 'https://cyberhopeai.com',
+      url: 'https://www.cyberhopeai.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://cyberhopeai.com/logo.png'
+        url: 'https://www.cyberhopeai.com/logo.png',
+        width: 512,
+        height: 512
       }
     },
-    description: 'CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust to accelerate development of Precognition OS™.',
-    articleBody: 'CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust. The investment will accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system that empowers human potential and redefines how industries work.',
-    url: 'https://cyberhopeai.com/press/series-a-announcement'
+    description: 'CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust to accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system.',
+    articleBody: 'Indianapolis, IN – September 9, 2025 – CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust. The investment will accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system that empowers human potential and redefines how industries work. CyberHopeAI is architected to deliver practical, real-world skills for AI across workforce development, advanced manufacturing, biotechnology, agritech, law enforcement, and hyperscale data centers.',
+    url: 'https://www.cyberhopeai.com/press/series-a-announcement',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://www.cyberhopeai.com/press/series-a-announcement'
+    },
+    isAccessibleForFree: true,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'CyberHopeAI',
+      url: 'https://www.cyberhopeai.com'
+    },
+    keywords: 'Series A, funding, investment, artificial intelligence, AI, Precognition OS, Joan Young Trust, CyberHopeAI',
+    articleSection: 'Press Release',
+    inLanguage: 'en-US',
+    about: {
+      '@type': 'Thing',
+      name: 'Series A Funding Round',
+      description: '$500,000 investment in CyberHopeAI'
+    },
+    mentions: [
+      {
+        '@type': 'Organization',
+        name: 'Joan Young Trust',
+        description: 'Lead investor in CyberHopeAI Series A round'
+      },
+      {
+        '@type': 'Product',
+        name: 'Precognition OS™',
+        description: 'AI platform designed as an intelligence operating system'
+      }
+    ]
   };
 
   return (
@@ -53,7 +123,7 @@ export default function SeriesAAnnouncement() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      <div className="min-h-screen py-20 px-4">
+      <article className="min-h-screen py-20 px-4" itemScope itemType="https://schema.org/NewsArticle">
         <div className="max-w-4xl mx-auto">
           {/* Press Release Header */}
           <div className="mb-8">
@@ -68,23 +138,23 @@ export default function SeriesAAnnouncement() {
               <span className="bg-primary/20 text-primary px-3 py-1 rounded-full font-semibold">
                 PRESS RELEASE
               </span>
-              <time dateTime="2025-09-09">September 9, 2025</time>
-              <span>Indianapolis, IN</span>
+              <time dateTime="2025-09-09" itemProp="datePublished">September 9, 2025</time>
+              <span itemProp="dateline">Indianapolis, IN</span>
             </div>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight" itemProp="headline">
             CyberHopeAI Raises $500K Series A to Build an Intelligence Operating System for Human Potential
           </h1>
 
           {/* Lead Paragraph */}
-          <div className="text-xl text-gray-300 mb-8 font-medium">
+          <div className="text-xl text-gray-300 mb-8 font-medium" itemProp="description">
             CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust. The investment will accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system that empowers human potential and redefines how industries work.
           </div>
 
           {/* Article Body */}
-          <div className="prose prose-invert max-w-none space-y-6">
+          <div className="prose prose-invert max-w-none space-y-6" itemProp="articleBody">
             <p className="text-gray-300 leading-relaxed">
               <strong>Indianapolis, IN – September 9, 2025</strong> – CyberHopeAI announced today it has raised $500,000 in Series A seed funding from the Joan Young Trust. The investment will accelerate development of Precognition OS™, an AI platform designed to serve as an intelligence operating system that empowers human potential and redefines how industries work.
             </p>
@@ -97,8 +167,8 @@ export default function SeriesAAnnouncement() {
               <p className="text-xl text-white">
                 &ldquo;This Series A is about more than growth—it&apos;s about purpose. We are creating an operating system for intelligence itself: one that validates skills, drives trust, and unlocks new frontiers for human progress.&rdquo;
               </p>
-              <cite className="text-gray-400 not-italic block mt-4">
-                — Rick Barretto, Founder & CEO of CyberHopeAI
+              <cite className="text-gray-400 not-italic block mt-4" itemProp="author" itemScope itemType="https://schema.org/Person">
+                — <span itemProp="name">Rick Barretto</span>, <span itemProp="jobTitle">Founder & CEO</span> of <span itemProp="worksFor">CyberHopeAI</span>
               </cite>
             </blockquote>
 
@@ -216,7 +286,7 @@ export default function SeriesAAnnouncement() {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </>
   );
 }
