@@ -2,36 +2,42 @@
 
 ## 🚀 Quick Access Information
 
-**Live Website**: https://cyberhopeai-website.vercel.app
+**Live Website**: https://www.cyberhopeai.com (custom domain)
+**Vercel Deployment**: https://cyberhopeai-website.vercel.app
 **GitHub Repository**: https://github.com/cyberhope-ai/cyberhope.ai-website
-**Custom Domain** (pending DNS): https://cyberhopeai.com
 
-## 📝 Series A Press Release URLs
+## 🎯 Mission Critical Information
 
-### Primary URL for Crunchbase Linking:
+This is the official CyberHopeAI company website. It's a clean Next.js 15.5.3 application deployed on Vercel with automatic GitHub integration. Any push to the main branch automatically deploys to production.
+
+## 📝 Press Release URLs (Crunchbase Validated)
+
+### Primary URLs for External Linking:
+- **Series A Announcement**: https://www.cyberhopeai.com/press/series-a-announcement
+- **Series A Alternative**: https://www.cyberhopeai.com/press/series-a
+- **Press Listing Page**: https://www.cyberhopeai.com/press
+
+### Important Press Release Notes:
+- Pages are configured with `noindex` meta tags for stealth mode
+- Uses NewsArticle schema (NOT PressRelease) for better validation
+- Includes comprehensive structured data for Crunchbase
+- All press releases MUST include proper author attribution to Rick Barretto
+
+## 🛠 Technical Stack
+
+```json
+{
+  "framework": "Next.js 15.5.3",
+  "runtime": "React 19.1.0",
+  "styling": "Tailwind CSS 3.4.0",
+  "deployment": "Vercel",
+  "form_service": "Web3Forms",
+  "build_tool": "Turbopack"
+}
 ```
-https://cyberhopeai-website.vercel.app/press/series-a-announcement
-```
 
-### Additional URLs (all serve the same content):
-- `/press` - Press listing page with all announcements
-- `/press/series-a-announcement` - Full press release with SEO optimization
-- `/press/series-a` - Alternative URL (redirects to main announcement)
+## 📁 Project Structure
 
-## 🛠 How to Update the Website
-
-### Prerequisites
-1. Clone the repository: `git clone https://github.com/cyberhope-ai/cyberhope.ai-website.git`
-2. Install dependencies: `npm install`
-3. Run locally: `npm run dev` (visit http://localhost:3000)
-
-### Making Changes
-1. **Edit existing pages** in `/app` directory
-2. **Components** are in `/components` directory
-3. **Always test locally** before pushing: `npm run build`
-4. **Commit and push** to automatically deploy via Vercel
-
-### Important Files & Locations
 ```
 app/
 ├── page.tsx                      # Homepage
@@ -39,125 +45,268 @@ app/
 ├── technology/page.tsx           # Technology (Skills Intelligence Engine)
 ├── mission/page.tsx              # Mission page
 ├── thesis/page.tsx               # Investment thesis
-├── investors/page.tsx            # Investor relations (has Crunchbase link)
+├── investors/page.tsx            # Investor relations (Crunchbase link)
 ├── contact/page.tsx              # Contact form (Web3Forms integrated)
 ├── press/
 │   ├── page.tsx                  # Press listing page
-│   └── series-a-announcement/    
-│       └── page.tsx              # Series A press release
+│   ├── series-a-announcement/    # Primary Series A press release
+│   │   └── page.tsx              # (Crunchbase validated)
+│   └── series-a/                 # Alternative Series A URL
+│       └── page.tsx              # (Also Crunchbase validated)
 └── api/
-    └── contact/route.ts          # Contact form API (sends emails)
+    └── contact/route.ts          # Contact form API endpoint
 
 components/
-├── Header.tsx                    # Navigation header (includes Press link)
-└── Footer.tsx                    # Footer (© 2025)
+├── Header.tsx                    # Navigation with Press link
+├── Footer.tsx                    # Footer (© 2025)
+└── [other components]
+
+public/
+└── [static assets]
 ```
 
-## 🔑 Key Features Implemented
+## 🚨 CRITICAL RULES FOR AI AGENTS
 
-1. **Series A Press Release**
-   - Full press release with proper formatting
-   - SEO metadata for Google indexing
-   - Structured data (JSON-LD) for search engines
-   - Social sharing buttons
-   - Crunchbase links integrated
+### 1. NEVER Break These Rules:
+- ✅ ALWAYS run `npm run build` before committing
+- ✅ ALWAYS use Precognition OS™ and SkillDNA™ with trademark symbols
+- ✅ ALWAYS keep copyright year as 2025
+- ✅ NEVER remove the noindex tags from press releases (stealth mode)
+- ✅ NEVER change the Web3Forms access key in contact API
+- ✅ NEVER create documentation unless explicitly requested
 
-2. **Contact Form**
-   - Fully functional with Web3Forms
-   - Sends emails to registered email
-   - No backend required
+### 2. Build & Deploy Process:
+```bash
+# 1. Make your changes
+# 2. Test locally
+npm run dev
 
-3. **Trademarks**
-   - Precognition OS™ 
-   - SkillDNA™
-   - Automatically added throughout site
+# 3. Build to check for errors
+npm run build
 
-4. **SEO Optimization**
-   - All pages have proper metadata
-   - OpenGraph tags for social sharing
-   - Sitemap.xml auto-generated
+# 4. Commit and push (auto-deploys to Vercel)
+git add .
+git commit -m "Your descriptive message"
+git push
+```
 
-## 📊 Adding New Press Releases
+### 3. Common Issues & Fixes:
 
-To add a new press release:
+**Apostrophe/Quote Errors in TSX:**
+- Use `&apos;` for apostrophes
+- Use `&ldquo;` and `&rdquo;` for quotes
+- Use `&mdash;` for em dashes
 
-1. Create new folder in `/app/press/[slug]/`
-2. Add `page.tsx` with this template:
+**Build Errors:**
+```bash
+# Always check with:
+npm run build
 
+# If TypeScript errors:
+npm run typecheck
+
+# If linting errors:
+npm run lint
+```
+
+## 📰 Creating New Press Releases
+
+### Step-by-Step Process:
+
+1. **Create folder structure:**
+```bash
+mkdir app/press/your-press-release-slug
+```
+
+2. **Create page.tsx with this template:**
 ```typescript
-import { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from 'next'
+
+const SITE_URL = 'https://www.cyberhopeai.com'
+const url = `${SITE_URL}/press/your-press-release-slug`
 
 export const metadata: Metadata = {
   title: 'Your Title - CyberHopeAI',
   description: 'Your description',
+  keywords: 'relevant, keywords, here',
+  authors: [{ name: 'Rick Barretto' }],
+  publisher: 'CyberHopeAI',
+  robots: {
+    index: false,  // Keep for stealth mode
+    follow: false,
+    nocache: true,
+  },
+  alternates: { canonical: url },
   openGraph: {
+    type: 'article',
+    url,
     title: 'Your Title',
     description: 'Your description',
-    type: 'article',
+    siteName: 'CyberHopeAI',
+    locale: 'en_US',
     publishedTime: '2025-XX-XX',
+    authors: ['Rick Barretto'],
   },
-};
+}
 
 export default function YourPressRelease() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',  // MUST be NewsArticle for Crunchbase
+    '@id': url,
+    headline: 'Your headline',
+    datePublished: '2025-XX-XX',
+    author: {
+      '@type': 'Person',
+      name: 'Rick Barretto',
+      jobTitle: 'Founder & CEO',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CyberHopeAI',
+      url: SITE_URL,
+    },
+    // ... rest of schema
+  }
+
   return (
-    <div className="min-h-screen py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Your content here */}
-      </div>
-    </div>
-  );
+    <main className="min-h-screen pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <article itemScope itemType="https://schema.org/NewsArticle">
+        {/* Your content */}
+      </article>
+    </main>
+  )
 }
 ```
 
-3. Update `/app/press/page.tsx` to add it to the listing
+3. **Update press listing page** (`app/press/page.tsx`) to include new release
 
-## 🚨 Important Notes
-
-1. **Automatic Deployment**: Any push to `main` branch auto-deploys to Vercel
-2. **Build Time**: ~1-2 minutes for changes to go live
-3. **Contact Form**: Emails go to the Web3Forms registered email
-4. **DNS**: Custom domain requires A record pointing to `76.76.21.21`
-
-## 📧 Contact Form Configuration
-
-The contact form uses Web3Forms with this access key:
-```
-c6756334-43b4-408d-9242-f925a7e6176c
+4. **Test and deploy:**
+```bash
+npm run build
+git add .
+git commit -m "Add new press release: [title]"
+git push
 ```
 
-Located in: `/app/api/contact/route.ts`
+## 🔧 Key Configurations
 
-## 🔗 External Links
+### Web3Forms Contact Integration
+- **Access Key**: `c6756334-43b4-408d-9242-f925a7e6176c`
+- **Location**: `/app/api/contact/route.ts`
+- **Emails go to**: Registered email address with Web3Forms
 
-- **Crunchbase**: https://www.crunchbase.com/organization/cyberhopeai
-- **Press Release URL for Crunchbase**: https://cyberhopeai-website.vercel.app/press/series-a-announcement
+### DNS Configuration (Already Set)
+- **A Record**: Points to `76.76.21.21` (Vercel)
+- **Domain**: cyberhopeai.com (managed via Squarespace)
 
-## 💡 Tips for AI Agents
+### Environment Variables
+- Create `.env.local` for any sensitive keys
+- Never commit `.env.local` to repository
 
-1. **Always run `npm run build`** before pushing to catch errors
-2. **Use proper TypeScript types** - the project uses TypeScript
-3. **Follow existing code patterns** - check similar pages for consistency
-4. **Test responsive design** - site must work on mobile
-5. **Keep SEO in mind** - update metadata for new pages
+## 📊 SEO & Metadata Standards
+
+### Every Page Must Have:
+```typescript
+export const metadata: Metadata = {
+  title: 'Page Title - CyberHopeAI',
+  description: 'Comprehensive description',
+  keywords: 'relevant, keywords',
+  authors: [{ name: 'CyberHopeAI' }],
+  openGraph: {
+    // Complete OG tags
+  },
+  twitter: {
+    // Twitter card data
+  }
+}
+```
+
+### Press Releases Additional Requirements:
+- NewsArticle schema (not PressRelease)
+- Author must be Rick Barretto
+- Include dateline (Indianapolis, IN)
+- Add media contact footer
+- Use semantic HTML5 tags
+
+## 🎨 Design Standards
+
+### Color Palette:
+- Primary: `#00D9FF` (cyan)
+- Secondary: Sky blue variants
+- Background: Dark (`#0D0F13`)
+- Text: White/Gray scale
+
+### Typography:
+- Use default Tailwind classes
+- Maintain consistent heading hierarchy
+- Always use `prose` class for article content
+
+## 🚀 Performance Optimization
+
+### Image Optimization:
+- Use Next.js Image component
+- Provide width and height attributes
+- Use WebP format when possible
+
+### Build Optimization:
+- Turbopack enabled for faster builds
+- Static generation for most pages
+- API routes for dynamic content only
+
+## 📝 Recent Updates (September 2025)
+
+- ✅ Migrated from Plasmic/Firebase to clean Next.js
+- ✅ Added Series A press release with Crunchbase validation
+- ✅ Implemented Web3Forms contact integration
+- ✅ Updated copyright to 2025
+- ✅ Added ™ symbols to Precognition OS™ and SkillDNA™
+- ✅ Added Press section to navigation
+- ✅ Configured noindex for stealth mode on press releases
+- ✅ Enhanced SEO with NewsArticle schema
+- ✅ Added semantic HTML5 markup for better validation
 
 ## 🆘 Troubleshooting
 
-- **Build fails**: Check for TypeScript errors, missing imports
-- **404 on new pages**: Ensure proper file structure in `/app` directory
-- **Contact form not working**: Check Web3Forms key is correct
-- **Deployment not updating**: Check Vercel dashboard for build logs
+### Build Fails:
+```bash
+# Check for TypeScript errors
+npm run typecheck
 
-## 📝 Recent Updates (Sept 2025)
+# Check for unescaped entities
+# Replace ' with &apos;
+# Replace " with &ldquo; or &rdquo;
+```
 
-- Added Series A press release page
-- Created press/news section
-- Added Press link to navigation
-- Integrated Web3Forms for contact
-- Updated copyright to 2025
-- Added ™ symbols to Precognition OS™ and SkillDNA™
-- Added Crunchbase link to investors page
+### 404 on New Pages:
+- Ensure proper file structure in `/app` directory
+- File must be named `page.tsx`
+
+### Contact Form Not Working:
+- Verify Web3Forms key is correct
+- Check API route at `/api/contact/route.ts`
+
+### Deployment Not Updating:
+- Check Vercel dashboard for build logs
+- Ensure GitHub integration is connected
+- Verify branch is set to `main`
+
+## 📞 Support Channels
+
+- **GitHub Issues**: Report bugs or suggest features
+- **Email**: rick@cyberhopeai.com
+- **Crunchbase**: https://www.crunchbase.com/organization/cyberhopeai
+
+## 🎯 Mission Statement
+
+This website represents CyberHopeAI's vision of building an Intelligence Operating System for Human Potential through Precognition OS™. Every update should maintain the professional, innovative, and purposeful tone that reflects our Series A funding milestone and our commitment to empowering human potential through AI.
 
 ---
 
-This website is deployed via Vercel with automatic GitHub integration. Any agent with access to the GitHub repository can make updates that will automatically deploy to production.
+**Last Updated**: September 2025
+**Maintained By**: CyberHopeAI Development Team
+**For AI Agents**: Follow these instructions exactly for successful updates
