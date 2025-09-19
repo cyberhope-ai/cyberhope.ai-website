@@ -1,51 +1,17 @@
-import { MetadataRoute } from 'next'
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://cyberhopeai.com'
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/technology`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/mission`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/investors`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/thesis`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+export default function sitemap() {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cyberhopeai.com'
+  const pages = [
+    '/',
+    '/about',
+    '/mission',
+    '/technology',
+    '/invest',
+    '/thesis',
+    '/request',
+    '/contact',
+    '/press',
+    '/press/series-a',
   ]
+  return pages.map((p) => ({ url: `${SITE_URL}${p}`, changeFrequency: 'weekly', priority: p === '/' ? 1.0 : 0.7 }))
 }
 

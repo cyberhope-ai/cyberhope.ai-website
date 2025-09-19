@@ -44,6 +44,12 @@ const Header = () => {
           >
             Mission
           </Link>
+          <Link 
+            href="/press" 
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Press
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -101,6 +107,13 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Mission
+            </Link>
+            <Link 
+              href="/press" 
+              className="text-sm font-medium hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Press
             </Link>
             <Link 
               href="/investors" 
