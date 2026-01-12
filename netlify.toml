@@ -30,6 +30,19 @@
   status = 200
   force = true
 
+# Proxy SkillDNA assets (Manus app uses absolute paths)
+[[redirects]]
+  from = "/assets/*"
+  to = "https://skilldna-hd8bsuaw.manus.space/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/images/*"
+  to = "https://skilldna-hd8bsuaw.manus.space/images/:splat"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/api/form"
   to = "/.netlify/functions/next-form"
