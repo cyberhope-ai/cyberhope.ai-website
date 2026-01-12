@@ -17,6 +17,19 @@
 [functions]
   directory = "netlify/functions"
 
+# Proxy SkillDNA demo from Manus
+[[redirects]]
+  from = "/skilldna"
+  to = "https://skilldna-hd8bsuaw.manus.space"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/skilldna/*"
+  to = "https://skilldna-hd8bsuaw.manus.space/:splat"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/api/form"
   to = "/.netlify/functions/next-form"
